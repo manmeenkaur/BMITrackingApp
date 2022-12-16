@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		A31A8CDC29494D5A00EA7CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CDB29494D5A00EA7CDB /* AppDelegate.swift */; };
 		A31A8CDE29494D5A00EA7CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CDD29494D5A00EA7CDB /* SceneDelegate.swift */; };
-		A31A8CE029494D5A00EA7CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CDF29494D5A00EA7CDB /* ViewController.swift */; };
 		A31A8CE329494D5A00EA7CDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31A8CE129494D5A00EA7CDB /* Main.storyboard */; };
 		A31A8CE629494D5A00EA7CDB /* BMITrackingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CE429494D5A00EA7CDB /* BMITrackingApp.xcdatamodeld */; };
 		A31A8CE829494D5B00EA7CDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A31A8CE729494D5B00EA7CDB /* Assets.xcassets */; };
 		A31A8CEB29494D5B00EA7CDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31A8CE929494D5B00EA7CDB /* LaunchScreen.storyboard */; };
+		A31A8CF3294BD79D00EA7CDB /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CF2294BD79D00EA7CDB /* BMIViewController.swift */; };
+		A31A8CF5294BD80900EA7CDB /* BMITrackingTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */; };
+		A31A8CFC294BE90700EA7CDB /* BMITracker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CFA294BE90700EA7CDB /* BMITracker+CoreDataClass.swift */; };
+		A31A8CFD294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CFB294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift */; };
+		A31A8CFF294BEC8500EA7CDB /* BMITrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A31A8CD829494D5A00EA7CDB /* BMITrackingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMITrackingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31A8CDB29494D5A00EA7CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A31A8CDD29494D5A00EA7CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A31A8CDF29494D5A00EA7CDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A31A8CE229494D5A00EA7CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A31A8CE529494D5A00EA7CDB /* BMITrackingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BMITrackingApp.xcdatamodel; sourceTree = "<group>"; };
 		A31A8CE729494D5B00EA7CDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A31A8CEA29494D5B00EA7CDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A31A8CEC29494D5B00EA7CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A31A8CF2294BD79D00EA7CDB /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
+		A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITrackingTableVC.swift; sourceTree = "<group>"; };
+		A31A8CFA294BE90700EA7CDB /* BMITracker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMITracker+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A31A8CFB294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMITracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITrackingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +66,18 @@
 		A31A8CDA29494D5A00EA7CDB /* BMITrackingApp */ = {
 			isa = PBXGroup;
 			children = (
+				A31A8CFA294BE90700EA7CDB /* BMITracker+CoreDataClass.swift */,
+				A31A8CFB294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift */,
 				A31A8CDB29494D5A00EA7CDB /* AppDelegate.swift */,
 				A31A8CDD29494D5A00EA7CDB /* SceneDelegate.swift */,
-				A31A8CDF29494D5A00EA7CDB /* ViewController.swift */,
 				A31A8CE129494D5A00EA7CDB /* Main.storyboard */,
 				A31A8CE729494D5B00EA7CDB /* Assets.xcassets */,
 				A31A8CE929494D5B00EA7CDB /* LaunchScreen.storyboard */,
 				A31A8CEC29494D5B00EA7CDB /* Info.plist */,
 				A31A8CE429494D5A00EA7CDB /* BMITrackingApp.xcdatamodeld */,
+				A31A8CF2294BD79D00EA7CDB /* BMIViewController.swift */,
+				A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */,
+				A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */,
 			);
 			path = BMITrackingApp;
 			sourceTree = "<group>";
@@ -141,9 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A31A8CE029494D5A00EA7CDB /* ViewController.swift in Sources */,
+				A31A8CFD294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift in Sources */,
 				A31A8CDC29494D5A00EA7CDB /* AppDelegate.swift in Sources */,
+				A31A8CFC294BE90700EA7CDB /* BMITracker+CoreDataClass.swift in Sources */,
+				A31A8CFF294BEC8500EA7CDB /* BMITrackingCell.swift in Sources */,
 				A31A8CDE29494D5A00EA7CDB /* SceneDelegate.swift in Sources */,
+				A31A8CF5294BD80900EA7CDB /* BMITrackingTableVC.swift in Sources */,
+				A31A8CF3294BD79D00EA7CDB /* BMIViewController.swift in Sources */,
 				A31A8CE629494D5A00EA7CDB /* BMITrackingApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--BMI Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BMITrackingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BMIViewController" customModule="BMITrackingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +98,9 @@
                                     <segment title="Metric"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <action selector="imperialMetricSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="zeG-uN-56w"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9d-00-sqc">
                                 <rect key="frame" x="34" y="616" width="366" height="70"/>
@@ -116,6 +119,9 @@
                                     </attributedString>
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="calculateBMIButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k77-16-Cs4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWs-Y2-la2">
                                 <rect key="frame" x="34" y="721" width="366" height="70"/>
@@ -133,9 +139,6 @@
                                     </attributedString>
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <segue destination="Tsu-gM-ioV" kind="show" id="fsR-yu-SuF"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI Observation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8a-Ne-ldp">
                                 <rect key="frame" x="20" y="518" width="390" height="56"/>
@@ -148,7 +151,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.90039668402241402" green="0.97053032538431416" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Lih-Eo-UOz"/>
+                    <tabBarItem key="tabBarItem" title="BMI Calculator" image="square.and.pencil" catalog="system" id="Lih-Eo-UOz"/>
+                    <connections>
+                        <outlet property="ageBMITextField" destination="par-SX-yTk" id="d9o-Lc-Vns"/>
+                        <outlet property="bmiObserveLabel" destination="Q8a-Ne-ldp" id="AeR-df-pf9"/>
+                        <outlet property="heightBMITextField" destination="EOe-yl-sEo" id="VPt-T0-H3C"/>
+                        <outlet property="nameBMITextField" destination="c1Q-TL-NpT" id="KPp-02-j2J"/>
+                        <outlet property="resultBMILabel" destination="M4F-PB-zmq" id="IB6-MS-isg"/>
+                        <outlet property="weightBMITextField" destination="pY4-ZM-mBf" id="HlH-dV-A6N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,49 +176,74 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="BWp-eE-Lb6"/>
-                        <segue destination="Tsu-gM-ioV" kind="relationship" relationship="viewControllers" id="vDv-r4-sFw"/>
+                        <segue destination="TVj-be-fAR" kind="relationship" relationship="viewControllers" id="nS3-Ow-I5A"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hku-gZ-erJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.74418604651163" y="3.8626609442060089"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="iSo-H8-Nrk">
+        <!--Track BMI-->
+        <scene sceneID="NgW-P3-36b">
             <objects>
-                <viewController id="Tsu-gM-ioV" customClass="ViewController" customModule="BMITrackingApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aTC-33-ylf">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
+                <tableViewController id="TVj-be-fAR" customClass="BMITrackingTableVC" customModule="BMITrackingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WEw-wF-U22">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oco-o8-p8M">
-                                <rect key="frame" x="0.0" y="177" width="430" height="652"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <sections/>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI Tracking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFq-eY-Cq2">
-                                <rect key="frame" x="81" y="69" width="268" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="rol-Sj-VSy"/>
-                        <color key="backgroundColor" red="0.90039668399999995" green="0.97053032539999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="J3p-oI-eyW"/>
-                    <navigationItem key="navigationItem" id="4ba-hp-fhA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fSM-KS-CcJ" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="5K4-cw-7Xr" customClass="BMITrackingCell" customModule="BMITrackingApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="430" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5K4-cw-7Xr" id="ea8-H8-V6i">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ba0-xm-7lV">
+                                            <rect key="frame" x="20" y="10" width="212" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-PH-9zu">
+                                            <rect key="frame" x="21" y="39" width="190" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BMI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMB-ka-9KC">
+                                            <rect key="frame" x="322" y="25" width="88" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bmiLabel" destination="zMB-ka-9KC" id="jf6-KG-hu9"/>
+                                    <outlet property="dateLabel" destination="m4I-PH-9zu" id="mfx-Wz-2lQ"/>
+                                    <outlet property="nameLabel" destination="Ba0-xm-7lV" id="3m9-s8-D64"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TVj-be-fAR" id="Y8P-v2-HlH"/>
+                            <outlet property="delegate" destination="TVj-be-fAR" id="J3K-gl-XiQ"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Track BMI" image="doc.plaintext" catalog="system" id="Eip-Lp-YH3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAd-cI-X39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.74418604651163" y="725.53648068669531"/>
+            <point key="canvasLocation" x="817.67441860465112" y="725.53648068669531"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="fsR-yu-SuF"/>
-    </inferredMetricsTieBreakers>
     <resources>
+        <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
