@@ -2,7 +2,8 @@
 //  SceneDelegate.swift
 //  BMITrackingApp
 //
-//  Created by Manmeen Kaur on 2022-12-13.
+//  Created by Manmeen Kaur (301259638) on 2022-12-13.
+//  Version: 1.0.0
 //
 
 import UIKit

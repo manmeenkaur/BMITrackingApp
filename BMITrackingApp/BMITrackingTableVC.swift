@@ -2,34 +2,113 @@
 //  BMITrackingTableVC.swift
 //  BMITrackingApp
 //
-//  Created by Manmeen Kaur on 2022-12-15.
-//
+//  Created by Manmeen Kaur (301259638) on 2022-12-15.
+//  Version: 1.0.0
+//  Changes: Created BMI Tracking Table View Controller to store BMI with personal information in a table view.
 
 import UIKit
+import CoreData
+
+var bmiTrackingList = [BMITracker]()
 
 class BMITrackingTableVC: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var firstLoad = true
+    
+//    func nonDeletedBMI() -> [BMITracker]
+//    {
+//        var noDeleteBMI = [BMITracker]()
+//        for bmiList in bmiTrackingList
+//        {
+//            if(bmiList.date == nil)
+//            {
+//                noDeleteBMI.append(bmiList)
+//            }
+//        }
+//        return noDeleteBMI
+//    }
+    
+    override func viewDidLoad()
+    {
+        if(firstLoad)
+        {
+            firstLoad = false
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BMITracker")
+            do {
+                let results:NSArray = try context.fetch(request) as NSArray
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+                for result in results
+                {
+                    let bmiTrack = result as! BMITracker
+                    print("BMITrack :  ", bmiTrack)
+                    bmiTrackingList.append(bmiTrack)
+                }
+            }
+            catch
+            {
+                print("Fetch Failed")
+            }
+        }
+        print("Printing BMI Tracking List from Table View Controller Class: ", bmiTrackingList)
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let bmiTrackingCell = tableView.dequeueReusableCell(withIdentifier: "BMITrackingCellID", for: indexPath) as! BMITrackingCell
+        
+        let thisBMI: BMITracker!
+        thisBMI = bmiTrackingList[indexPath.row]
+        
+        bmiTrackingCell.nameLabel.text = thisBMI.name
+        bmiTrackingCell.weightLabel.text = String(describing: thisBMI.weight)
+        
+        let dateBMI = thisBMI.date!
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
+        let formatteddate = formatter.string(from: dateBMI)
+        bmiTrackingCell.dateLabel.text = formatteddate
+        
+        bmiTrackingCell.bmiLabel.text = String(describing: thisBMI.bmiResult)
+//        let bmiResultToString = String(format: "%.2f", bmiResult)
+//        bmiTrackingCell.bmiLabel.text = bmiResultToString
+        return bmiTrackingCell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return bmiTrackingList.count
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        tableView.reloadData()
+    }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+//    {
+//        self.performSegue(withIdentifier: "editNote", sender: self)
+//    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+//    {
+//        if(segue.identifier == "editNote")
+//        {
+//            let indexPath = tableView.indexPathForSelectedRow!
+//
+//            let noteDetail = segue.destination as? NoteDetailVC
+//
+//            let selectedNote : BMITracker!
+//            selectedNote = nonDeletedBMI()[indexPath.row]
+//            noteDetail!.selectedNote = selectedNote
+//
+//            tableView.deselectRow(at: indexPath, animated: true)
+//        }
+//    }
+
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

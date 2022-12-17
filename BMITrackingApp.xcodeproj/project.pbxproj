@@ -15,9 +15,8 @@
 		A31A8CEB29494D5B00EA7CDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31A8CE929494D5B00EA7CDB /* LaunchScreen.storyboard */; };
 		A31A8CF3294BD79D00EA7CDB /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CF2294BD79D00EA7CDB /* BMIViewController.swift */; };
 		A31A8CF5294BD80900EA7CDB /* BMITrackingTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */; };
-		A31A8CFC294BE90700EA7CDB /* BMITracker+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CFA294BE90700EA7CDB /* BMITracker+CoreDataClass.swift */; };
-		A31A8CFD294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CFB294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift */; };
 		A31A8CFF294BEC8500EA7CDB /* BMITrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */; };
+		A31A8D01294C0C4E00EA7CDB /* BMITracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8D00294C0C4E00EA7CDB /* BMITracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +30,8 @@
 		A31A8CEC29494D5B00EA7CDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A31A8CF2294BD79D00EA7CDB /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITrackingTableVC.swift; sourceTree = "<group>"; };
-		A31A8CFA294BE90700EA7CDB /* BMITracker+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMITracker+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A31A8CFB294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMITracker+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITrackingCell.swift; sourceTree = "<group>"; };
+		A31A8D00294C0C4E00EA7CDB /* BMITracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +64,6 @@
 		A31A8CDA29494D5A00EA7CDB /* BMITrackingApp */ = {
 			isa = PBXGroup;
 			children = (
-				A31A8CFA294BE90700EA7CDB /* BMITracker+CoreDataClass.swift */,
-				A31A8CFB294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift */,
 				A31A8CDB29494D5A00EA7CDB /* AppDelegate.swift */,
 				A31A8CDD29494D5A00EA7CDB /* SceneDelegate.swift */,
 				A31A8CE129494D5A00EA7CDB /* Main.storyboard */,
@@ -78,6 +74,7 @@
 				A31A8CF2294BD79D00EA7CDB /* BMIViewController.swift */,
 				A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */,
 				A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */,
+				A31A8D00294C0C4E00EA7CDB /* BMITracker.swift */,
 			);
 			path = BMITrackingApp;
 			sourceTree = "<group>";
@@ -153,12 +150,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A31A8CFD294BE90700EA7CDB /* BMITracker+CoreDataProperties.swift in Sources */,
 				A31A8CDC29494D5A00EA7CDB /* AppDelegate.swift in Sources */,
-				A31A8CFC294BE90700EA7CDB /* BMITracker+CoreDataClass.swift in Sources */,
 				A31A8CFF294BEC8500EA7CDB /* BMITrackingCell.swift in Sources */,
 				A31A8CDE29494D5A00EA7CDB /* SceneDelegate.swift in Sources */,
 				A31A8CF5294BD80900EA7CDB /* BMITrackingTableVC.swift in Sources */,
+				A31A8D01294C0C4E00EA7CDB /* BMITracker.swift in Sources */,
 				A31A8CF3294BD79D00EA7CDB /* BMIViewController.swift in Sources */,
 				A31A8CE629494D5A00EA7CDB /* BMITrackingApp.xcdatamodeld in Sources */,
 			);
