@@ -17,6 +17,7 @@
 		A31A8CF5294BD80900EA7CDB /* BMITrackingTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */; };
 		A31A8CFF294BEC8500EA7CDB /* BMITrackingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */; };
 		A31A8D01294C0C4E00EA7CDB /* BMITracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31A8D00294C0C4E00EA7CDB /* BMITracker.swift */; };
+		A3C649B7294D7CD60043D1ED /* EditBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C649B6294D7CD60043D1ED /* EditBMIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITrackingTableVC.swift; sourceTree = "<group>"; };
 		A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITrackingCell.swift; sourceTree = "<group>"; };
 		A31A8D00294C0C4E00EA7CDB /* BMITracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMITracker.swift; sourceTree = "<group>"; };
+		A3C649B6294D7CD60043D1ED /* EditBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBMIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				A31A8CF4294BD80900EA7CDB /* BMITrackingTableVC.swift */,
 				A31A8CFE294BEC8500EA7CDB /* BMITrackingCell.swift */,
 				A31A8D00294C0C4E00EA7CDB /* BMITracker.swift */,
+				A3C649B6294D7CD60043D1ED /* EditBMIViewController.swift */,
 			);
 			path = BMITrackingApp;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				A31A8CDC29494D5A00EA7CDB /* AppDelegate.swift in Sources */,
 				A31A8CFF294BEC8500EA7CDB /* BMITrackingCell.swift in Sources */,
 				A31A8CDE29494D5A00EA7CDB /* SceneDelegate.swift in Sources */,
+				A3C649B7294D7CD60043D1ED /* EditBMIViewController.swift in Sources */,
 				A31A8CF5294BD80900EA7CDB /* BMITrackingTableVC.swift in Sources */,
 				A31A8D01294C0C4E00EA7CDB /* BMITracker.swift in Sources */,
 				A31A8CF3294BD79D00EA7CDB /* BMIViewController.swift in Sources */,
