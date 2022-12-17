@@ -13,20 +13,9 @@ var bmiTrackingList = [BMITracker]()
 
 class BMITrackingTableVC: UITableViewController {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var firstLoad = true
-    
-//    func nonDeletedBMI() -> [BMITracker]
-//    {
-//        var noDeleteBMI = [BMITracker]()
-//        for bmiList in bmiTrackingList
-//        {
-//            if(bmiList.date == nil)
-//            {
-//                noDeleteBMI.append(bmiList)
-//            }
-//        }
-//        return noDeleteBMI
-//    }
+
     
     override func viewDidLoad()
     {
@@ -86,26 +75,22 @@ class BMITrackingTableVC: UITableViewController {
         tableView.reloadData()
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-//    {
-//        self.performSegue(withIdentifier: "editNote", sender: self)
-//    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-//    {
-//        if(segue.identifier == "editNote")
-//        {
-//            let indexPath = tableView.indexPathForSelectedRow!
-//
-//            let noteDetail = segue.destination as? NoteDetailVC
-//
-//            let selectedNote : BMITracker!
-//            selectedNote = nonDeletedBMI()[indexPath.row]
-//            noteDetail!.selectedNote = selectedNote
-//
-//            tableView.deselectRow(at: indexPath, animated: true)
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+            let deleteContext = UIContextualAction(style: .destructive, title:"Delete"){_, _, _ in
+                self.context.delete(bmiTrackingList[indexPath.row])
+                bmiTrackingList.remove(at: indexPath.row)
+                do{
+                    try self.context.save()
+                }
+                catch _ {}
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+                
+            }
+            let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteContext])
+            return swipeConfiguration
+        }
 
 
     // MARK: - Table view data source
